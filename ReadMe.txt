@@ -58,7 +58,6 @@ The labels in this dataset are simple. There are three possible values:<br>
 
 
 ## Coding Language/Environment used:
-We have use the Databricks platform to achieve our task. The programming language used is scala and we used Spark's MLlib library to build the model. We ran it on a Community Optimized Spark 2.1 cluster with 6GB of memory.
 
 Initially, we merged the Training set values with the corresponding Training set labels into a single CSV file with the help of ID column. Having the label in the same place as the features makes it easy to build the model. Then, we mapped the class labels, non-functional, functional, functional needs repair to 0, 1, 2 respectively. 
 
