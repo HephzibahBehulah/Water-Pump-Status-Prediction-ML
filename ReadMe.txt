@@ -1,5 +1,5 @@
 # Pump it Up : Data-Mining the Water Table
-#### Link to the Databricks notebook: Click [here](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/167428040012665/848460877589804/8971546509206599/latest.html) <br>
+#### Link to the Datab: Click [here]((https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/data/).) <br>
 
 The goal is to predict the operating condition of a waterpoint for each record in the dataset.You are provided the following set of information about the waterpoints
 
@@ -54,7 +54,7 @@ The labels in this dataset are simple. There are three possible values:<br>
 * functional needs repair - the waterpoint is operational, but needs repairs<br>
 * non functional - the waterpoint is not operational<br>
 
-![](https://github.com/chanddu/Pump-it-Up-Data-Mining-the-Water-Table/blob/master/Workflow.png)
+![](https://github.com/HephzibahBehulah/Water-Pump-Prediction.png)
 
 
 ## Coding Language/Environment used:
@@ -68,4 +68,4 @@ We used 80% of the original data as the training data to build our model. We eva
 We have split the data into 80-20 and calculated the Mean Squared Error with the help of MLlib's RegressionMetrics and found the value to be 0.257, which is decent. <br>
 We have classified our test data. A screenshot of a few results is provided below.
 
-![](https://github.com/chanddu/Pump-it-Up-Data-Mining-the-Water-Table/blob/master/Picture1.png)
+![](https://github.com/HephzibahBehulah/Water-Pump-Prediction.png)
