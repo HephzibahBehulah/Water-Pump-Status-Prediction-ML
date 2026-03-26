@@ -1,5 +1,5 @@
 # 💧 Water Pump Status Prediction (Machine Learning Project)
-#### Link to the Datab: Click [here]((https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/data/).) <br>
+#### Link to the Datab: (https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/data/)
 
 ## 🚀 Overview
 This project focuses on predicting the operational status of water pumps using machine learning.  
