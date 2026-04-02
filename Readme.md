@@ -1,8 +1,31 @@
-# Pump it Up : Data-Mining the Water Table
-#### Link to the Datab: Click [here]((https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/data/).) <br>
+# 💧 Water Pump Status Prediction (Machine Learning Project)
+#### Link to the Datab: (https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/data/)
 
-The goal is to predict the operating condition of a waterpoint for each record in the dataset.You are provided the following set of information about the waterpoints
+## 🚀 Overview
+This project focuses on predicting the operational status of water pumps using machine learning.  
+The goal is to classify pumps into:
 
+- ✅ Functional  
+- ⚠️ Functional Needs Repair  
+- ❌ Non-Functional  
+
+This is a real-world classification problem with strong impact on infrastructure, maintenance planning, and resource allocation.
+
+---
+
+## 🧠 Problem Statement
+Access to clean water is critical. Many water pumps fail due to poor maintenance or environmental conditions.
+
+👉 The challenge:
+Build a model that predicts pump status based on features like location, installer, water quality, and construction details.
+
+---
+
+## 👥 Team
+**HydroDominion** (3-member ML team)
+
+---
+## The columns in this dataset
 * amount_tsh - Total static head (amount water available to waterpoint) <br>
 * date_recorded - The date the row was entered<br>
 * funder - Who funded the well<br>
@@ -43,28 +66,102 @@ The goal is to predict the operating condition of a waterpoint for each record i
 * waterpoint_type - The kind of waterpoint<br>
 * waterpoint_type_group - The kind of waterpoint<br>
 
-## The labels in this dataset
+## 📊 Dataset
+The dataset consists of:
+- **Training Values** (features)
+- **Training Labels** (target: `status_group`)
+- **Test Values** (for prediction)
 
-![](http://drivendata.materials.s3.amazonaws.com/pumps/labeldistribution.png)
+Total features: 40+  
+Total samples: ~59,000  
 
-Distribution of Labels<br>
-The labels in this dataset are simple. There are three possible values:<br>
+---
 
-* functional - the waterpoint is operational and there are no repairs needed<br>
-* functional needs repair - the waterpoint is operational, but needs repairs<br>
-* non functional - the waterpoint is not operational<br>
+## 🧹 Data Preprocessing
+Key steps:
+- Handling missing values
+- Converting `date_recorded` → year, month
+- Fixing mixed data types (str, bool, float)
+- Encoding categorical variables using `OrdinalEncoder`
+- Dropping low-value columns (e.g., `scheme_name`, `recorded_by`)
 
-![](https://github.com/HephzibahBehulah/Water-Pump-Prediction.png)
+---
+
+## ⚙️ Models Used
+We implemented and compared 6 models:
+1. Logistic Regression  
+2. Decision Tree  
+3. Random Forest 🌳  
+4. XGBoost ⚡  
+5. LightGBM 🚀  
+6. CatBoost 🐱  
+
+---
+
+## 🏆 Results (Validation Performance)
+| Model               | Accuracy |
+|--------------------|---------|
+| Logistic Regression | ~57% |
+| Decision Tree       | ~59% |
+| Random Forest       | ~69% ✅ |
+| XGBoost             | (improving) |
+| LightGBM            | (in progress) |
+| CatBoost            | (in progress) |
+
+👉 **Random Forest performed best so far**
+
+---
+
+## 📉 Challenges Faced
+- Mixed data types (bool + string)
+- Missing values in categorical features
+- Date format issues (`YYYY-MM-DD`)
+- Encoding errors across train/test sets
+- Model compatibility issues (XGBoost, LightGBM)
+
+---
+
+## 🧪 Evaluation Metrics
+
+- Accuracy  
+- Precision  
+- Recall  
+- F1-Score  
+- Confusion Matrix  
+
+---
+
+## 📁 Project Structure
+water-pump-prediction-ml/
+│
+├── data/
+├── notebooks/
+├── src/
+├── models/
+├── submission.csv
+├── README.md
 
 
-## Coding Language/Environment used:
+water-pump-prediction-ml/
+│
+├── data/
+├── notebooks/
+├── src/
+├── models/
+├── submission.csv
+├── README.m
 
-Initially, we merged the Training set values with the corresponding Training set labels into a single CSV file with the help of ID column. Having the label in the same place as the features makes it easy to build the model. Then, we mapped the class labels, non-functional, functional, functional needs repair to 0, 1, 2 respectively. 
 
-We used 80% of the original data as the training data to build our model. We evaluated the model on rest of the 20% data. We used the Mean Square error metric to do that task. As this is a multi-label classification problem, we experimented with several classification techniques and found Logistic regression to be appropriate. We used the MLlib's Logistic regression, to build our model and we obtained labels for the Test set values CSV file. We used assembler, normalizer and pipeline concepts to build the model.
+📈 Future Improvements
+Feature engineering (pump age, region grouping)
+Hyperparameter tuning
+Cross-validation
+Model ensembling
+Deployment (API or dashboard)
 
-## Results
-We have split the data into 80-20 and calculated the Mean Squared Error with the help of MLlib's RegressionMetrics and found the value to be 0.257, which is decent. <br>
-We have classified our test data. A screenshot of a few results is provided below.
+💡 Key Takeaway
+The real power of machine learning is not just in models —
+it’s in how well you understand and prepare your data.
 
-![](https://github.com/HephzibahBehulah/Water-Pump-Prediction.png)
+📬 Contact
+Feel free to connect or collaborate!
