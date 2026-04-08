@@ -1,30 +1,201 @@
+# Sprint 1: Exploratory Data Analysis
 # 💧 Water Pump Status Prediction (Machine Learning Project)
 #### Link to the Datab: (https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/data/)
+### 👥 Team: **Hydro Dominion**
 
-## 🚀 Overview
-This project focuses on predicting the operational status of water pumps using machine learning.  
-The goal is to classify pumps into:
+## 📌 Project Overview
+Access to clean water is a critical global challenge. In many regions, water pumps fail due to poor maintenance, environmental conditions, or installation quality.
+This project aims to **predict the functionality status of water pumps** using machine learning.
 
-- ✅ Functional  
-- ⚠️ Functional Needs Repair  
-- ❌ Non-Functional  
-
-This is a real-world classification problem with strong impact on infrastructure, maintenance planning, and resource allocation.
-
----
-
-## 🧠 Problem Statement
-Access to clean water is critical. Many water pumps fail due to poor maintenance or environmental conditions.
-
-👉 The challenge:
-Build a model that predicts pump status based on features like location, installer, water quality, and construction details.
+🔍 In **Sprint 1**, our focus is:
+* Understanding the dataset
+* Cleaning and preparing the data
+* Extracting insights through Exploratory Data Analysis (EDA)
 
 ---
 
-## 👥 Team
-**HydroDominion** (3-member ML team)
+## 🧪 Dataset Description
+We used three datasets:
+* `Training Set Values.csv` → Features
+* `Training Set Labels.csv` → Target (`status_group`)
+* `Test Set Values.csv` → Final prediction dataset
+
+After merging:
+* 📊 Total rows: **59,400**
+* 🎯 Target classes:
+
+  * Functional
+  * Functional needs repair
+  * Non-functional
 
 ---
+
+## 🧠 Hypotheses
+
+We defined the following hypotheses to guide our analysis:
+
+# H1: Pump type influences functionality  
+# H2: Installer affects pump reliability  
+# H3: Geography (region/basin) impacts pump performance  
+# H4: Older pumps are more likely to fail  
+# H5: Population served influences pump failure rate  
+# H6: Water quality affects pump functionality
+# H7: Maintenance frequency impacts pump reliability
+# H8: Pump age and installer together influence failure rates
+# H9: Certain pump types are more prone to failure in specific regions
+# H10: Socioeconomic factors of the area affect pump maintenance and functionality
+
+---
+
+## ❓ Research Questions
+
+* Do older pumps fail more often?
+* Are pumps serving larger populations more likely to break?
+* Are certain regions more prone to failures?
+* Does installer quality affect reliability?
+* Which pump types perform best?
+
+---
+
+## 🧹 Data Cleaning & Preparation
+
+Key steps performed:
+
+* ✅ Merged datasets on `id`
+* ✅ Removed duplicates
+* ✅ Handled missing values:
+
+  * Categorical → `"missing"`
+  * Numerical → `0`
+* ✅ Converted `date_recorded` → extracted year & month
+* ✅ Fixed mixed data types (converted to consistent formats)
+* ✅ Dropped irrelevant columns:
+
+  * `id`, `recorded_by`, `scheme_name`
+
+---
+
+## 📊 Exploratory Data Analysis (EDA)
+
+We performed visual analysis to validate our hypotheses.
+
+### 🔹 Target Distribution
+
+* Majority of pumps are **functional**
+* Minority class → *functional needs repair* ⚠️ (class imbalance)
+
+---
+
+### 🔹 Pump Age vs Functionality
+
+* Older pumps show higher failure rates ✔️
+* Strong support for **H4**
+
+---
+
+### 🔹 Geography (Region & Basin)
+
+* Significant variation across regions
+* Some regions have disproportionately high failures ✔️
+* Supports **H3**
+
+---
+
+### 🔹 Installer Impact
+
+* Clear differences between top installers
+* Some installers consistently produce better outcomes ✔️
+* Supports **H2**
+
+---
+
+### 🔹 Population Impact
+
+* Higher population usage correlates with failures ✔️
+* Supports **H5**
+
+---
+
+### 🔹 Pump Type Analysis
+
+* Certain pump/extraction types perform better ✔️
+* Supports **H1**
+
+---
+
+## 📈 Additional Analysis
+
+* 📦 Outliers detected in `amount_tsh`
+* 🔥 Correlation analysis performed for numeric features
+* ⚠️ Dataset imbalance identified (important for modeling)
+
+---
+
+## 🧠 Key Insights
+
+1. Older pumps are more likely to fail
+2. Geography significantly impacts pump functionality
+3. Installer quality plays a major role
+4. Certain pump types are more reliable
+5. High population usage increases failure risk
+6. Dataset is imbalanced and requires handling in modeling
+
+---
+
+## 🛠️ Tools & Technologies
+
+* Python (Pandas, NumPy)
+* Visualization (Matplotlib, Seaborn)
+* Power BI (for dashboard exploration)
+* Git & GitHub (collaboration)
+
+---
+
+## 🎯 Sprint 1 Deliverables
+
+✔ Hypotheses & research questions
+✔ Cleaned and validated dataset
+✔ Exploratory data analysis with visualizations
+✔ Key insights for modeling
+✔ Reproducible code
+
+---
+
+## 🚀 Next Steps (Sprint 2)
+
+In the next sprint, we will:
+
+* Build machine learning models:
+
+  * Logistic Regression
+  * Decision Tree
+  * Random Forest
+  * XGBoost
+  * LightGBM
+  * CatBoost
+* Handle class imbalance
+* Optimize performance
+* Generate predictions for test dataset
+
+---
+
+## 🎤 Team Reflection
+
+> “We didn’t just analyze data — we uncovered patterns that explain real-world system failures.
+> These insights will directly guide our predictive models.”
+
+## 💬 Final Note
+
+Sprint 1 laid the **foundation**.
+
+We now understand:
+
+* what matters
+* what affects pump failure
+* and what features will drive prediction
+
+Sprint 2 is where we **turn insight into intelligence** ⚡
+
 ## The columns in this dataset
 * amount_tsh - Total static head (amount water available to waterpoint) <br>
 * date_recorded - The date the row was entered<br>
@@ -72,96 +243,6 @@ The dataset consists of:
 - **Training Labels** (target: `status_group`)
 - **Test Values** (for prediction)
 
-Total features: 40+  
-Total samples: ~59,000  
 
 ---
 
-## 🧹 Data Preprocessing
-Key steps:
-- Handling missing values
-- Converting `date_recorded` → year, month
-- Fixing mixed data types (str, bool, float)
-- Encoding categorical variables using `OrdinalEncoder`
-- Dropping low-value columns (e.g., `scheme_name`, `recorded_by`)
-
----
-
-## ⚙️ Models Used
-We implemented and compared 6 models:
-1. Logistic Regression  
-2. Decision Tree  
-3. Random Forest 🌳  
-4. XGBoost ⚡  
-5. LightGBM 🚀  
-6. CatBoost 🐱  
-
----
-
-## 🏆 Results (Validation Performance)
-| Model               | Accuracy |
-|--------------------|---------|
-| Logistic Regression | ~57% |
-| Decision Tree       | ~59% |
-| Random Forest       | ~69% ✅ |
-| XGBoost             | (improving) |
-| LightGBM            | (in progress) |
-| CatBoost            | (in progress) |
-
-👉 **Random Forest performed best so far**
-
----
-
-## 📉 Challenges Faced
-- Mixed data types (bool + string)
-- Missing values in categorical features
-- Date format issues (`YYYY-MM-DD`)
-- Encoding errors across train/test sets
-- Model compatibility issues (XGBoost, LightGBM)
-
----
-
-## 🧪 Evaluation Metrics
-
-- Accuracy  
-- Precision  
-- Recall  
-- F1-Score  
-- Confusion Matrix  
-
----
-
-## 📁 Project Structure
-water-pump-prediction-ml/
-│
-├── data/
-├── notebooks/
-├── src/
-├── models/
-├── submission.csv
-├── README.md
-
-
-water-pump-prediction-ml/
-│
-├── data/
-├── notebooks/
-├── src/
-├── models/
-├── submission.csv
-├── README.m
-
-
-📈 Future Improvements
-Feature engineering (pump age, region grouping)
-Hyperparameter tuning
-Cross-validation
-Model ensembling
-Deployment (API or dashboard)
-
-💡 Key Takeaway
-The real power of machine learning is not just in models —
-it’s in how well you understand and prepare your data.
-
-📬 Contact
-Feel free to connect or collaborate!
