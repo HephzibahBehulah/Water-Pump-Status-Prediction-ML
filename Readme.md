@@ -34,16 +34,18 @@ After merging:
 
 We defined the following hypotheses to guide our analysis:
 
-# H1: Pump type influences functionality  
-# H2: Installer affects pump reliability  
-# H3: Geography (region/basin) impacts pump performance  
-# H4: Older pumps are more likely to fail  
-# H5: Population served influences pump failure rate  
-# H6: Water quality affects pump functionality
-# H7: Maintenance frequency impacts pump reliability
-# H8: Pump age and installer together influence failure rates
-# H9: Certain pump types are more prone to failure in specific regions
-# H10: Socioeconomic factors of the area affect pump maintenance and functionality
+# #H1: Pump type influences functionality  
+# #H2: Installer affects pump reliability  
+# #H3: Geography (region/basin) impacts pump performance  
+# H4:  Older pumps are more likely to fail  
+# H5:  Population served influences pump failure rate  
+# #H6: Water quality affects pump functionality
+# #H7: Maintenance frequency impacts pump reliability
+# #H8: Pump age and installer together influence failure rates
+# #H9: Certain pump types are more prone to failure in specific regions
+# #H10: Socioeconomic factors of the area affect pump maintenance and functionality
+# #H11: Lift method vs functionality
+# #H12: water availability vs functionality
 
 ---
 
