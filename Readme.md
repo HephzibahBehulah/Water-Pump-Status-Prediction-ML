@@ -1,250 +1,149 @@
-# Sprint 1: Exploratory Data Analysis
-# 💧 Water Pump Status Prediction (Machine Learning Project)
-#### Link to the Datab: (https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/data/)
-### 👥 Team: **Hydro Dominion**
-
-## 📌 Project Overview
-Access to clean water is a critical global challenge. In many regions, water pumps fail due to poor maintenance, environmental conditions, or installation quality.
-This project aims to **predict the functionality status of water pumps** using machine learning.
-
-🔍 In **Sprint 1**, our focus is:
-* Understanding the dataset
-* Cleaning and preparing the data
-* Extracting insights through Exploratory Data Analysis (EDA)
-
----
-
-## 🧪 Dataset Description
-We used three datasets:
-* `Training Set Values.csv` → Features
-* `Training Set Labels.csv` → Target (`status_group`)
-* `Test Set Values.csv` → Final prediction dataset
-
-After merging:
-* 📊 Total rows: **59,400**
-* 🎯 Target classes:
-
-  * Functional
-  * Functional needs repair
-  * Non-functional
-
----
-
-## 🧠 Hypotheses
-
-We defined the following hypotheses to guide our analysis:
-
-# #H1: Pump type influences functionality  
-# #H2: Installer affects pump reliability  
-# #H3: Geography (region/basin) impacts pump performance  
-# H4:  Older pumps are more likely to fail  
-# H5:  Population served influences pump failure rate  
-# #H6: Water quality affects pump functionality
-# #H7: Maintenance frequency impacts pump reliability
-# #H8: Pump age and installer together influence failure rates
-# #H9: Certain pump types are more prone to failure in specific regions
-# #H10: Socioeconomic factors of the area affect pump maintenance and functionality
-# #H11: Lift method vs functionality
-# #H12: water availability vs functionality
-
----
-
-## ❓ Research Questions
-
-* Do older pumps fail more often?
-* Are pumps serving larger populations more likely to break?
-* Are certain regions more prone to failures?
-* Does installer quality affect reliability?
-* Which pump types perform best?
-
----
-
-## 🧹 Data Cleaning & Preparation
-
-Key steps performed:
-
-* ✅ Merged datasets on `id`
-* ✅ Removed duplicates
-* ✅ Handled missing values:
-
-  * Categorical → `"missing"`
-  * Numerical → `0`
-* ✅ Converted `date_recorded` → extracted year & month
-* ✅ Fixed mixed data types (converted to consistent formats)
-* ✅ Dropped irrelevant columns:
-
-  * `id`, `recorded_by`, `scheme_name`
-
----
-
-## 📊 Exploratory Data Analysis (EDA)
-
-We performed visual analysis to validate our hypotheses.
-
-### 🔹 Target Distribution
-
-* Majority of pumps are **functional**
-* Minority class → *functional needs repair* ⚠️ (class imbalance)
-
----
-
-### 🔹 Pump Age vs Functionality
-
-* Older pumps show higher failure rates ✔️
-* Strong support for **H4**
-
----
-
-### 🔹 Geography (Region & Basin)
-
-* Significant variation across regions
-* Some regions have disproportionately high failures ✔️
-* Supports **H3**
-
----
-
-### 🔹 Installer Impact
-
-* Clear differences between top installers
-* Some installers consistently produce better outcomes ✔️
-* Supports **H2**
-
----
-
-### 🔹 Population Impact
-
-* Higher population usage correlates with failures ✔️
-* Supports **H5**
-
----
-
-### 🔹 Pump Type Analysis
-
-* Certain pump/extraction types perform better ✔️
-* Supports **H1**
-
----
-
-## 📈 Additional Analysis
-
-* 📦 Outliers detected in `amount_tsh`
-* 🔥 Correlation analysis performed for numeric features
-* ⚠️ Dataset imbalance identified (important for modeling)
-
----
-
-## 🧠 Key Insights
-
-1. Older pumps are more likely to fail
-2. Geography significantly impacts pump functionality
-3. Installer quality plays a major role
-4. Certain pump types are more reliable
-5. High population usage increases failure risk
-6. Dataset is imbalanced and requires handling in modeling
-
----
-
-## 🛠️ Tools & Technologies
-
-* Python (Pandas, NumPy)
-* Visualization (Matplotlib, Seaborn)
-* Power BI (for dashboard exploration)
-* Git & GitHub (collaboration)
-
----
-
-## 🎯 Sprint 1 Deliverables
-
-✔ Hypotheses & research questions
-✔ Cleaned and validated dataset
-✔ Exploratory data analysis with visualizations
-✔ Key insights for modeling
-✔ Reproducible code
-
----
-
-## 🚀 Next Steps (Sprint 2)
-
-In the next sprint, we will:
-
-* Build machine learning models:
-
-  * Logistic Regression
-  * Decision Tree
-  * Random Forest
-  * XGBoost
-  * LightGBM
-  * CatBoost
-* Handle class imbalance
-* Optimize performance
-* Generate predictions for test dataset
-
----
-
-## 🎤 Team Reflection
-
-> “We didn’t just analyze data — we uncovered patterns that explain real-world system failures.
-> These insights will directly guide our predictive models.”
-
-## 💬 Final Note
-
-Sprint 1 laid the **foundation**.
-
-We now understand:
-
-* what matters
-* what affects pump failure
-* and what features will drive prediction
-
-Sprint 2 is where we **turn insight into intelligence** ⚡
-
-## The columns in this dataset
-* amount_tsh - Total static head (amount water available to waterpoint) <br>
-* date_recorded - The date the row was entered<br>
-* funder - Who funded the well<br>
-* gps_height - Altitude of the well<br>
-* installer - Organization that installed the well<br>
-* longitude - GPS coordinate<br>
-* latitude - GPS coordinate<br>
-* wpt_name - Name of the waterpoint if there is one<br>
-* num_private -<br>
-* basin - Geographic water basin<br>
-* subvillage - Geographic location<br>
-* region - Geographic location<br>
-* region_code - Geographic location (coded)<br>
-* district_code - Geographic location (coded)<br>
-* lga - Geographic location<br>
-* ward - Geographic location<br>
-* population - Population around the well<br>
-* public_meeting - True/False<br>
-* recorded_by - Group entering this row of data<br>
-* scheme_management - Who operates the waterpoint<br>
-* scheme_name - Who operates the waterpoint<br>
-* permit - If the waterpoint is permitted<br>
-* construction_year - Year the waterpoint was constructed<br>
-* extraction_type - The kind of extraction the waterpoint uses<br>
-* extraction_type_group - The kind of extraction the waterpoint uses<br>
-* extraction_type_class - The kind of extraction the waterpoint uses<br>
-* management - How the waterpoint is managed<br>
-* management_group - How the waterpoint is managed<br>
-* payment - What the water costs<br>
-* payment_type - What the water costs<br>
-* water_quality - The quality of the water<br>
-* quality_group - The quality of the water<br>
-* quantity - The quantity of water<br>
-* quantity_group - The quantity of water<br>
-* source - The source of the water<br>
-* source_type - The source of the water<br>
-* source_class - The source of the water<br>
-* waterpoint_type - The kind of waterpoint<br>
-* waterpoint_type_group - The kind of waterpoint<br>
-
-## 📊 Dataset
-The dataset consists of:
-- **Training Values** (features)
-- **Training Labels** (target: `status_group`)
-- **Test Values** (for prediction)
-
-
----
-
+# 💧 Water Pump Status Prediction — Hydro Dominion
+
+> A machine learning project built as part of the **ReDI School Data Circle program** (Berlin, 2025).
+> > Team: **Hydro Dominion** | Dataset: [DrivenData — Pump It Up](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/data/)
+> >
+> > ---
+> >
+> > ## Why I Built This
+> >
+> > Access to clean water is one of the most critical global challenges. Across Tanzania, thousands of water pumps serve rural communities — but many fail silently, leaving people without water for weeks or months. This project asks a straightforward question: **can we predict which pumps are likely to fail before they do?**
+> >
+> > Working as part of a two-person team (Team Hydro Dominion) through the ReDI School Data Circle course, we tackled this as a real-world, end-to-end ML project — from raw data exploration all the way to trained, serialized models ready for deployment.
+> >
+> > ---
+> >
+> > ## 🎯 Problem Statement
+> >
+> > Predict the **operational status** of 59,400 waterpoints across Tanzania into one of three classes:
+> >
+> > | Class | Share |
+> > |---|---|
+> > | Functional | 54.3% |
+> > | Non-functional | 38.4% |
+> > | Functional needs repair | 7.3% (minority class) |
+> >
+> > The severe class imbalance — especially the 7.3% minority class — was one of the core challenges we addressed.
+> >
+> > ---
+> >
+> > ## 🗂️ Project Structure
+> >
+> > ```
+> > Water-Pump-Status-Prediction-ML/
+> > ├── EDA/                               # Sprint 1: Exploratory analysis notebooks
+> > ├── ML_Hydro_Dominion/                 # Sprint 1 team documentation
+> > ├── Models/
+> > │   ├── Finalized_model_Baseline.ipynb # Sprint 2: All models + tuning
+> > │   ├── sprint_2_docx.md               # Sprint 2 write-up
+> > │   ├── best_rf_tuned_pipeline.pkl     # Best model (tuned Random Forest)
+> > │   └── rf_balanced_new_features_pipeline.pkl  # Balanced-weight RF
+> > ├── Water_Pumps_Predictions_Sprint.../  # Prediction outputs
+> > ├── Training Set Values.csv
+> > ├── Training Set Labels.csv
+> > └── Test Set Values.csv
+> > ```
+> >
+> > ---
+> >
+> > ## 🔬 Sprint 1 — Exploratory Data Analysis ✅
+> >
+> > ### What We Did
+> > - Merged 3 datasets (59,400 rows × 41 features) on the `id` column
+> > - - Cleaned and validated data: handled 70% zero-rate in `amount_tsh`, extracted `pump_age` from construction year, standardized 2,000+ installer name variants into ~30 canonical groups
+> >   - - Investigated 12 research hypotheses about what drives pump failure
+> >    
+> >     - ### Key Findings
+> >     - - **Older pumps fail more** — `pump_age` is among the top predictive features
+> >       - - **Geography matters** — failure rates vary significantly across Tanzania's regions and basins
+> >         - - **Installer quality is measurable** — certain installers consistently produce better-performing pumps
+> >           - - **Class imbalance is severe** — "functional needs repair" at just 7.3% requires special handling in modeling
+> >            
+> >             - ### Tools Used
+> >             - Python · Pandas · NumPy · Matplotlib · Seaborn · Power BI · Git
+> >            
+> >             - ---
+> >
+> > ## 🤖 Sprint 2 — Model Development & Tuning ✅
+> >
+> > ### Feature Engineering
+> > Engineered 21 features from raw data:
+> >
+> > **Numeric (11):** `gps_height`, `population`, `public_meeting`, `permit`, `pump_age`, `payment_binary`, `population_zero`, `log_population`, `gps_height_zero`, `is_dry`, `installer_freq`, `lga_freq`
+> >
+> > **Categorical (10):** `installer`, `basin`, `lga`, `extraction_type_group`, `management`, `water_quality`, `quantity`, `source`, `waterpoint_type`, `pump_age_bin`
+> >
+> > Key engineered features:
+> > - `pump_age` — derived from `year_recorded - construction_year`
+> > - - `log_population` — log-transformed to handle right skew
+> >   - - `installer_freq` / `lga_freq` — frequency encoding for high-cardinality columns
+> >     - - `is_dry` — binary flag for `quantity == 'dry'`
+> >       - - `payment_binary` — simplified payment to pay/never-pay
+> >        
+> >         - ### Models Evaluated (6 Baselines)
+> >        
+> >         - | Model | Pipeline |
+> >         - |---|---|
+> >         - | Logistic Regression | Linear (scaled + one-hot) |
+> > | K-Nearest Neighbors (k=5) | Linear (scaled + one-hot) |
+> > | Decision Tree | Tree (ordinal encoded) |
+> > | Random Forest (200 estimators) | Tree |
+> > | Gradient Boosting (100 estimators) | Tree |
+> > | AdaBoost (100 estimators) | Tree |
+> >
+> > Used **SelectKBest** with mutual information scoring to select optimal feature subsets per model.
+> >
+> > ### Hyperparameter Tuning
+> > - Ran **RandomizedSearchCV** (20 iterations, 5-fold CV) on both Random Forest and Gradient Boosting
+> > - - Tuned: `n_estimators`, `max_depth`, `min_samples_split`, `min_samples_leaf`, `max_features`, `learning_rate`, `subsample`
+> >   - - Best model: **Tuned Random Forest**
+> >    
+> >     - ### Class Imbalance Handling
+> >     - - Trained a `class_weight='balanced'` variant of the Random Forest
+> >       - - Compared confusion matrices and classification reports with/without balanced weights
+> >         - - Balanced model improves **recall for the minority class** ("functional needs repair") at the cost of modest overall accuracy
+> >          
+> >           - ### Data Quality Checks
+> >           - - Stratified 80/20 train/validation split to preserve class proportions (47,520 train / 11,880 validation)
+> >             - - Median imputation fitted on training set only — **no data leakage**
+> >               - - Learning curve analysis to diagnose overfitting vs. underfitting
+> >                 - - 5-fold cross-validation accuracy compared against train and validation accuracy
+> >                  
+> >                   - ### Saved Artifacts
+> >                   - | File | Description |
+> >                   - |---|---|
+> >                   - | `best_rf_tuned_pipeline.pkl` | Tuned Random Forest (RandomizedSearchCV best estimator) |
+> >                   - | `rf_balanced_new_features_pipeline.pkl` | Balanced-weight RF for minority class recall |
+> >                  
+> >                   - ---
+> >
+> > ## 🔭 Sprint 3 — In Progress 🚧
+> >
+> > Planned next steps:
+> > - Experiment with XGBoost with more aggressive tuning
+> > - - Apply SMOTE oversampling for the minority class
+> >   - - Reintroduce geographic coordinates (latitude/longitude) with proper encoding
+> >     - - Investigate ensemble stacking of the best models
+> >      
+> >       - ---
+> >
+> > ## 🛠️ Tech Stack
+> >
+> > | Category | Tools |
+> > |---|---|
+> > | Language | Python 3 |
+> > | Data Processing | Pandas, NumPy |
+> > | Visualization | Matplotlib, Seaborn, Power BI |
+> > | ML Framework | scikit-learn |
+> > | Boosting | XGBoost |
+> > | Model Serialization | joblib |
+> > | Collaboration | Git, GitHub |
+> >
+> > ---
+> >
+> > ## 👥 Team
+> >
+> > **Hydro Dominion** — built as part of the ReDI School Berlin Data Circle course (March–June 2025)
+> >
+> > - [Vaibhav Koneti](https://github.com/Vaibhavkoneti)
+> > - - [HephzibahBehulah](https://github.com/HephzibahBehulah)
