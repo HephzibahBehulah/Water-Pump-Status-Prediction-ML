@@ -110,18 +110,25 @@ Stratified 80/20 split, median imputation fitted only on training data, learning
 
 ---
 
-## Sprint 3 — What's next 🚧
+## 🔭 Sprint 3 — Insights & Deployment ✅
 
-- Try XGBoost with more aggressive hyperparameter search
-- Apply SMOTE to oversample the minority class during training
-- Bring back lat/lon coordinates with proper encoding
-- Experiment with stacking our best models together
+Sprint 3 was about making the model actually useful — not just accurate on paper, but something a field engineer could open and act on.
+
+We used SHAP to explain what the model is doing under the hood. The biggest finding: **water quantity is the single strongest predictor of failure**. A dry source alone shifts the probability of a pump being non-functional by 0.4. GPS location, extraction type, management, and pump age round out the top five. Pump age is interesting — it's gradual until it isn't. Failure spikes sharply after 50 years.
+
+A few other things the data confirmed: gravity and mono pumps outlast hand and rope pumps by a significant margin, NGO-managed hand pumps fail roughly twice as often as water-board-managed gravity pumps, and population served barely correlates with failure at all.
+
+On the modelling side, we landed on **XGBoost + SMOTE** as the stronger final model — it generalizes better (88.4% train / 78.6% val) with a 0.69 macro F1. Random Forest + SMOTE overfits more (99.5% train) but has slightly better repair precision. We kept both, because running them together flags borderline pumps that neither catches alone.
+
+For MLOps, we logged 24 runs across 7 model configs in MLflow and versioned all large files through DVC — so every result is reproducible and traceable.
+
+The final deliverable is a **7-page Streamlit dashboard** built for field teams and government authorities. You can check a single pump or run batch analysis, and every prediction comes with a SHAP explanation so it's never just a black box.
 
 ---
 
 ## Tech stack
 
-Python 3 · Pandas · NumPy · Matplotlib · Seaborn · Power BI · scikit-learn · XGBoost · joblib · Git
+Python 3 · Pandas · NumPy · Matplotlib · Seaborn · scikit-learn · XGBoost · joblib · Git
 
 ---
 
