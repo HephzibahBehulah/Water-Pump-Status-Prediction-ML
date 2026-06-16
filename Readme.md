@@ -1,6 +1,6 @@
 # 💧 Water Pump Status Prediction
 
-**Team Hydro Dominion** · ReDI School Data Circle, Berlin 2025  
+**Team Hydro Dominion** · ReDI School Data Circle, Berlin 2026 
 Dataset: [DrivenData — Pump It Up](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/data/)
 
 ---
