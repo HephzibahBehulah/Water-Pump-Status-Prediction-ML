@@ -134,7 +134,7 @@ Python 3 · Pandas · NumPy · Matplotlib · Seaborn · scikit-learn · XGBoost 
 
 ## The team
 
-Built by **Hydro Dominion** as part of the ReDI School Berlin Data Circle (March–June 2025):
+Built by **Hydro Dominion** as part of the ReDI School Berlin Data Circle (March–June 2026):
 
 - [Vaibhav Koneti](https://github.com/Vaibhavkoneti)
 - [HephzibahBehulah](https://github.com/HephzibahBehulah)
