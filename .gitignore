@@ -1,0 +1,84 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+.jupyter/
+
+# Data (large files - tracked by DVC)
+/data/raw/*.csv
+/data/raw/*.parquet
+/data/processed/*.parquet
+/data/processed/*.csv
+!/data/raw/.gitkeep
+!/data/processed/.gitkeep
+
+# Models (tracked by DVC)
+/models/**/*.pkl
+/models/**/*.joblib
+!/models/production/.gitkeep
+!/models/staging/.gitkeep
+
+# MLflow
+/mlruns/
+.mlflow/
+
+# DVC (keep .dvc folder and dvc.yaml, but ignore cache)
+/dvc.lock
+/.dvc/cache
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
